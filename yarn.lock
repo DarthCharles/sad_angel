@@ -6294,9 +6294,9 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-"play.core@github:chilijohnson/play.core#package":
+"play.core@github:DarthCharles/play.core#package":
   version "1.0.0"
-  resolved "git+ssh://git@github.com/chilijohnson/play.core.git#a5a2d49753f42252680e314405fe60dd76cfeeb1"
+  resolved "https://codeload.github.com/DarthCharles/play.core/tar.gz/a5a2d49753f42252680e314405fe60dd76cfeeb1"
 
 portfinder@^1.0.28:
   version "1.0.28"
