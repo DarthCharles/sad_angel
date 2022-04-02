@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 
 import { Maptastic } from "maptastic";
 
-import { Bobi } from "./components/Bobi";
-import { CameraRGB } from "./components/CameraRGB";
+import { Bobi, CameraRGB, CameraPixels } from "./components";
 import { MaptasticContext } from "./hooks";
 
 import "./App.css";
@@ -30,6 +29,7 @@ function App() {
       <MaptasticContext.Provider value={{ maptastic: maptasticRef }}>
         <Bobi maptasticId="bobbers" />
         <CameraRGB maptasticId="cameraRGB" />
+        <CameraPixels maptasticId={"cameraPixels"} />
       </MaptasticContext.Provider>
     </div>
   );
