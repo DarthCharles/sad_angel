@@ -1,23 +1,25 @@
-import { useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { Maptastic } from "maptastic";
 
-import { Cube } from "./components/Cube";
 import { Bobi } from "./components/Bobi";
 import { CameraRGB } from "./components/CameraRGB";
+import { MaptasticContext } from "./hooks";
+
 import "./App.css";
 
 function App() {
-  useLayoutEffect(() => {
+  const [maptasticRef, setMaptasticRef] = useState();
+
+  useEffect(() => {
     try {
       const configObject = {
-        autoSave: false,
-        autoLoad: false,
+        autoSave: true,
+        autoLoad: true,
         onchange: () => {},
-        layers: ["nice", "nice2", "bobbers"],
+        layout: [],
       };
-
-      new Maptastic(configObject);
+      setMaptasticRef(new Maptastic(configObject));
     } catch (error) {
       console.log(error);
     }
@@ -25,9 +27,10 @@ function App() {
 
   return (
     <div className="App">
-      <Cube />
-      <Bobi canvasId={"bobbers"} />
-      <CameraRGB />
+      <MaptasticContext.Provider value={{ maptastic: maptasticRef }}>
+        <Bobi maptasticId="bobbers" />
+        <CameraRGB maptasticId="cameraRGB" />
+      </MaptasticContext.Provider>
     </div>
   );
 }
